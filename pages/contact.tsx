@@ -1,21 +1,22 @@
-// pages/contact.tsx
 import React from 'react';
 import Head from 'next/head';
 
 const ContactPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // ここで入力データを処理します。
+    // ここで入力データを処理
     console.log('Form submitted');
   };
-
   return (
     <>
       <Head>
-        <title>Contact Us</title>
+        <title>Contact</title>
       </Head>
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-2xl font-semibold mb-6">お問い合わせフォーム</h1>
+        <h1 className="text-2xl font-semibold mb-6">Contact</h1>
+        仕事のご依頼、お問い合わせはこちらからお願いいたします。
+        もしくは、Twitter,FaceBookからメッセージをいただいても構いません。
+        ※仕事以外のご依頼は返信できませんのでご了承ください。
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="name" className="block mb-2">
