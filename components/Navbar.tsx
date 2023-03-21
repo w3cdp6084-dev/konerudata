@@ -1,61 +1,20 @@
-// components/Navbar.tsx
-import React, { useState, useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import Link from 'next/link';
-const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLUListElement>(null);
+import React from 'react'
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  useEffect(() => {
-    if (menuRef.current) {
-      if (isOpen) {
-        gsap.to(menuRef.current, {
-          opacity: 1,
-          height: 'auto',
-          duration: 0.3,
-          ease: 'power1.inOut',
-        });
-      } else {
-        gsap.to(menuRef.current, {
-          opacity: 0,
-          height: 0,
-          duration: 0.3,
-          ease: 'power1.inOut',
-        });
-      }
-    }
-  }, [isOpen]);
-
+function Navbar() {
   return (
-   <>
-    <nav className="navbar">
-       <button className='hamburger'>
-         <span className='hamburger-line'></span>
-         <span className='hamburger-line'></span>
-         <span className='hamburger-line'></span>
-       </button>
-       <ul className='nav-menu' id='nav-menu'>
-           <Link href="/" legacyBehavior>
-              <a className="">Home</a>
-           </Link>
-           <Link href="/" >
-              <a className="">Home</a>
-           </Link>
-           <Link href="/" legacyBehavior>
-              <a className="">Home</a>
-           </Link>
-           <Link href="/" legacyBehavior>
-              <a className="">Home</a>
-           </Link>
-       </ul>
-    </nav>
-    </>
-  );
-};
+    <div className='hambergerMenu'>
+      <div className='hambergerMenu-overlay-01'></div>
+      <div className='hambergerMenu-overlay-02'></div>
+      <button className='hambergerMenu-btn js-click-target'>
+         <span className='hambergerMenu-hover'>
+            <span className='hambergerMenu-openarea'>
+               <span className='hambergerMenu-openarea-line hambergerMenu-openarea-line-01'></span>
+               <span className='hambergerMenu-openarea-line hambergerMenu-openarea-line-02'></span>
+            </span>
+         </span>
+      </button>
+    </div>
+  )
+}
 
-export default Navbar;
-
+export default Navbar
